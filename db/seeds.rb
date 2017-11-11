@@ -1,4 +1,5 @@
 
+
 Artist.destroy_all
 Song.destroy_all
 
@@ -19,3 +20,4 @@ artist3 =  Artist.create!(name: "Ashla Bosle", nationality: "Dutch", remote_imag
     {name: "Yegle Nesh", duration: 3.18, release: d2,  album: "",label: " Awesome tapes from Africa", artist: artist1 },
     {name: "All We Know", duration: 4.01 , release: d3, album: "Monologue of thousand voices" ,label: "Melodiya", artist: artist2  },
     {name: "Udi baba", duration: 6.19 ,release: d4, album: "Vidhata",label: "", artist: artist3 } ])
+

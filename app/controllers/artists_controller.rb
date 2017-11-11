@@ -53,4 +53,7 @@ class ArtistsController < ApplicationController
         :name, :picture, :nationality, :birthyear, :image
       )
     end
+    def image_params
+  params[:image].present? ? params.require(:image) : []
+end
 end
