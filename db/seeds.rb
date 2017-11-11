@@ -1,3 +1,4 @@
+
 Photo.destroy_all
 Artist.destroy_all
 Song.destroy_all
@@ -24,3 +25,5 @@ artist3 =  Artist.create!(name: "Ashla Bosle", nationality: "Dutch")
 photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419645/Heilu_mergia_aps8r3.jpg", artist: artist1)
 photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419626/alexanderkatenin_rsb1zv.jpg", artist: artist2)
 photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419618/Ashla_ud6bjd.jpg", artist: artist3)
+
+
