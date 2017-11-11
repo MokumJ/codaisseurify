@@ -1,0 +1,35 @@
+<%= form_for @artist do |f| %>
+
+
+  <div class="form-group">
+    <label>Name</label>
+    <%= f.text_field :name, placeholder: "Artist name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <%= f.text_area :nationality, placeholder: "Nationality", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Year of birth</label>
+    <div class="input-group">
+
+      <%= f.number_field :birthyear, placeholder: "1980", class: "form-control" %>
+
+  </div>
+
+<%= form_for @artist, html: { multipart: true } do |f| %>
+<label>Picture</label>
+
+<div class="form-group">
+  <span class="btn btn-default">
+    Upload a picture of the artist
+    <%= file_field_tag "image[]", type: :file, multiple: true %>
+  </span>
+</div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
