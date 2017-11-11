@@ -1,13 +1,13 @@
 class ArtistsController < ApplicationController
 
   def index
-   @Artists = Artist.all
+   @artists = Artist.all
   end
 
   def show
-   @Artist = Artist.find(params[:id])
+   @artist = Artist.find(params[:id])
    @songs = @artist.songs
-   @photos = @artist.photo
+
   end
 
   def new
@@ -18,16 +18,14 @@ class ArtistsController < ApplicationController
      @artist = @artists.build
     if @artist.save
     redirect_to @artist
-    image_params.each do |image|
-      @artist.photo.create(image: image)
-    end
+
     else
     render 'new'
     end
   end
 
   def destroy
-    @artist.destroy
+    @artist.destroy(artist_params)
     redirect_to artists_path
   end
 
@@ -38,9 +36,7 @@ class ArtistsController < ApplicationController
 
     if @artist.update(artist_params)
       redirect_to @artist
-      image_params.each do |image|
-     @artist.photo.create(image: image)
-   end
+
     else
       render 'edit'
     end
@@ -54,10 +50,7 @@ class ArtistsController < ApplicationController
     params
       .require(:artist)
       .permit(
-        :name, :picture, :nationality, :birthyear
+        :name, :picture, :nationality, :birthyear, :image
       )
     end
-    def image_params
-  params[:image].present? ? params.require(:image) : []
-end
 end
