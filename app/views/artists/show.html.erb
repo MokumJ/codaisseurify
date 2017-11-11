@@ -4,6 +4,8 @@
   <div class="panel panel-default">
   <div class="panel-heading">
 <%=image_tag @artist.image.thumbnail %>
+<p>  Nationality: <%=      @artist.nationality     %></p>
+<p>   From:       <%=      @artist.birthyear     %></p>
 </div>
 </div>
 <h3> Songs<h3>
@@ -14,6 +16,7 @@
   <%=      song.release  %>
   <%=      song.album    %>
   <%=      song.label    %>
+  <%= link_to "Delete", artist_path(@song.artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
        </p>
   <%end%>
 </ol>
