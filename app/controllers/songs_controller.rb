@@ -34,5 +34,5 @@ class SongsController < ApplicationController
         :name, :duration, :release, :album, :label, :artist_id
       )
     end
-end
+  end
 end
