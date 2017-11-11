@@ -3,7 +3,7 @@
 
   <div class="panel panel-default">
   <div class="panel-heading">
-<%=image_tag @artist.picture.thumbnail %>
+<%=image_tag @artist.image.thumbnail %>
 </div>
 </div>
 <h3> Songs<h3>
@@ -14,5 +14,5 @@
 </ol>
   <div class="col-md-3 right">
     <%= link_to "Update", edit_artist_path(artist), class: "btn btn-default" %>
-    <%= link_to "[Delete]", artist_path(@martist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+    <%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
   </div>
