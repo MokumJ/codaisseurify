@@ -5,20 +5,16 @@
         All artists
       </div>
 
-        <% @Artists.each do |artist| %>
+        <%@artists.each do |artist| %>
         <div class="col-md-3 right">
-          <%= link_to "#{@artist.name}", artist, class: "btn btn-default" %>
-          <div class="panel panel-default">
+          <%= link_to artist.name, artist_path(artist.id), class: "btn btn-default" %>
+
+        <div class="panel panel-default">
           <div class="panel-heading">
-      <%=image_tag @artist.picture.thumbnail %>
-  </div>
-</div>
-
-
-
-      </div>
-
-            <%end%>
+            <%= image_tag artist.image.thumbnail %>
+          </div>
+        </div>
+          <% end %>
 
 
 
