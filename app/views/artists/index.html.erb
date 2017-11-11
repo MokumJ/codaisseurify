@@ -7,21 +7,15 @@
 
         <% @Artists.each do |artist| %>
         <div class="col-md-3 right">
-          <%= link_to "#{@artist.name}", artist, class: "btn btn-default" %>
-          <div class="panel panel-default">
+          <%= link_to artist.name, artist, class: "btn btn-default" %>
+          <% end %>
+          <% @artist.photos.each do |photo| %>
+        <div class="panel panel-default">
           <div class="panel-heading">
-      <%=image_tag @artist.picture.thumbnail %>
-  </div>
-</div>
 
-
-
-      </div>
-
-            <%end%>
-
-
-
-
+            <%= image_tag photo.image.thumbnail %>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
