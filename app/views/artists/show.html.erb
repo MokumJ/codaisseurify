@@ -16,7 +16,7 @@
   <%=      song.release  %>
   <%=      song.album    %>
   <%=      song.label    %>
-  <%= link_to "Delete", artist_path(@song.artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+  <%=  link_to "delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
        </p>
   <%end%>
 </ol>
