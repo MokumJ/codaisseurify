@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :artists do
 
-  resources :songs, only: [:create, :destroy]
+  resources :songs, only: [:create, :new, :destroy]
   end
 end
