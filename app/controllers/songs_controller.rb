@@ -1,25 +1,22 @@
 class SongsController < ApplicationController
-  def index
-   @songs = current_artist.songs
-  end
+
 
   def new
-   @song = current_artist.songs.build
+    @artist = Artist.find(params[:artist_id])
+   @song = @artist.songs.build(params[:song])
   end
 
   def create
-    @song = current_artist.song.new(song_params)
-    @song.artist_id = params[:artist_id]
+    @artist = Artist.find(params[:artist_id])
+    @song = @artist.songs.build(params[:song_id])
+
     @song.save!
+    redirect_to @artist, notice: "Song added"
 
-    redirect_to artist_path, notice: "Song added"
-    else
-    render :new
-
-  end
+end
 
   def destroy
-    @artist = Artist.find(params[:artist_id])
+   @artist = Artist.find(params[:artist_id])
    @song = @artist.songs.find(params[:id])
    @song.destroy
    redirect_to @artist, :notice => "song Deleted"
@@ -27,15 +24,17 @@ class SongsController < ApplicationController
 
 
   private
-
+  def set_artist
+    @artist = Artist.find_by(params[:artist_id])
+  end
   def set_song
     @song = Song.find(params[:id])
   end
   def song_params
     params
-      .require(:song)
+      .require(:song, :song_id)
       .permit(
-        :name, :duration, :release, :album, :label, :artist_id
+        :name, :duration, :release, :album, :label, :artist_id, :song_id
       )
 
   end

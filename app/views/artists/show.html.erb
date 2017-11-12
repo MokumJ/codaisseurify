@@ -16,13 +16,16 @@
   <%=      song.release  %>
   <%=      song.album    %>
   <%=      song.label    %>
-  <%=  link_to "delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+  <%=  link_to "Delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
        </p>
+
+
   <%end%>
+  <%= link_to "Add song", new_artist_song_path(@artist, @song), class: "btn btn-success" %>
 </ol>
   <div class="col-md-3 right">
     <%= link_to "Back", artists_path, class: "btn btn-default" %>
-    <%= link_to "Delete", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+    <%= link_to "Delete artist", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
   </div>
   <style>p.indent{ padding-left: 1.8em }</style>
   <style>p.indent{ padding-left: 1.8em }</style>
