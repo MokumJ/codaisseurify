@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Songs.order(params[:sort])
+
+    @songs = Songs.order(params[:sort] + ' ' + params[:direction])
   end
   def new
     @artist = Artist.find(params[:artist_id])
