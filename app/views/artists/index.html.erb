@@ -1,23 +1,24 @@
 
   <div class="col-md-9">
-    <div class="panel panel-primary">
+    <div class="panelpanel-primary">
       <div class="panel-heading">
           All Artists
       </div>
-
+      <div class="col-md-3 right">
+      <div class="block">
         <%@artists.each do |artist| %>
-        <div class="col-md-3 right">
-          <%= link_to artist.name, artist_path(artist.id), class: "btn btn-default" %>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <%= image_tag artist.image.thumbnail %>
-          </div>
-        </div>
-          <% end %>
+          <%= link_to artist.name, artist_path(artist.id), class: "btn1" %>
 
+
+
+            <%= image_tag artist.image.thumbnail, class: "image" %>
+
+        <% end %>
+
+
+<footer>
 <%= link_to "Add new artist", new_artist_path(@artist), class: "btn btn-success" %>
-
-
-      </div>
-    </div>
+  </div>
+</div>
+</footer>

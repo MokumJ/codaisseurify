@@ -1,2 +1,64 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.panel-heading {
+
+text-align: center;
+ margin: 5px;
+ font-family: Helvetica;
+ font-size:  24px;
+ background-color: #c0392b;
+ color: white;
+ width: 1280px
+
+}
+.btn1 {
+  padding: 0px;
+  font-size: 18px;
+  font-family: Helvetica;
+  font-weight: bold;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+.table {
+  padding: 3px;
+  border: 1px;
+  font-size: 16px;
+}
+.panel.panel-primary {
+    text-align: center;
+    float: center;
+    margin: 10px;
+
+  }
+
+  .col-md-3.right {
+    width: 1280px;
+    height: 800px;
+
+
+
+  }
+  .image {
+    float: left;
+    text-align: center;
+    display: inline;
+    margin-bottom: 30px;
+  }
+
+  .btn.btn-success {
+    float: left;
+    margin-top: 10px;
+    position: relative;
+    bottom: -300;
+  }
+
+  .block {
+    text-align: center;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
