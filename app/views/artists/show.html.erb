@@ -13,7 +13,7 @@
 <%@songs.each do|song|%>
   <%=      song.name     %>
   <%=      song.duration %>
-  <%=      song.release  %>
+  <%=      song.release(Date)  %>
   <%=      song.album    %>
   <%=      song.label    %>
   <%=  link_to "Delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>

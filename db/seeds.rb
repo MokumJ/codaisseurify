@@ -10,9 +10,9 @@ d3 = DateTime.new(1985)
 d4 = DateTime.new(1982)
 
 #artists
-artist1 =  Artist.create!(name: "Hailu Mergia", nationality: "Ethiopian", remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419645/Heilu_mergia_aps8r3.jpg" )
-artist2 =  Artist.create!(name: "Alexander Katenin", nationality: "Russian", remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419626/alexanderkatenin_rsb1zv.jpg")
-artist3 =  Artist.create!(name: "Ashla Bosle", nationality: "Dutch", remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419618/Ashla_ud6bjd.jpg")
+artist1 =  Artist.create!(name: "Hailu Mergia", nationality: "Ethiopian", birthyear: 1950, remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419645/Heilu_mergia_aps8r3.jpg"  )
+artist2 =  Artist.create!(name: "Alexander Katenin", nationality: "Russian", birthyear: 1950, remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419626/alexanderkatenin_rsb1zv.jpg")
+artist3 =  Artist.create!(name: "Ashla Bosle", nationality: "Dutch", birthyear: 1950, remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510419618/Ashla_ud6bjd.jpg")
 
 #songs
   Song.create!([

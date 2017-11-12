@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :artist do
     name              { Faker::Name }
     nationality       "Guatamalteca"
-    birthyear        { Faker::Number }
+    birthyear         1999
     image             "image tag"
 
 
