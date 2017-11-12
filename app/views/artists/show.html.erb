@@ -11,8 +11,8 @@
 <h3> Songs </h3>
 
 <table class="table">
-  <tr>
-    <th>title</th>
+  <tr class= "table-head">
+    <th>Title</th>
     <th>Duration</th>
     <th> <%= sortable "release", "Released" %></th>
     <th>Album</th>
@@ -20,7 +20,7 @@
   </tr>
 
 <%@songs.each do|song|%>
-  <tr>
+  <tr class = "table-body">
 <td><%=      song.name     %> </td>
 <td><%=      song.duration.to_f %> </td>
 <td><%=      song.release.year  %> </td>
