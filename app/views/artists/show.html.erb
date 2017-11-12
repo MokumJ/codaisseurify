@@ -3,7 +3,7 @@
 
   <div class="panel panel-default">
   <div class="panel-heading">
-<%=image_tag @artist.image.thumbnail %>
+<%=image_tag @artist.image.thumbnail.to_s %>
 <p>  Nationality: <%=      @artist.nationality     %></p>
 <p>   From:       <%=      @artist.birthyear     %></p>
 </div>

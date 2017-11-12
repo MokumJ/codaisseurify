@@ -3,17 +3,21 @@ class SongsController < ApplicationController
 
   def new
     @artist = Artist.find(params[:artist_id])
-   @song = @artist.songs.build(params[:song])
+   @song = @artist.songs.build
   end
 
   def create
     @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.build(params[:song_id])
+    @song = @artist.songs.build(song_params)
 
-    @song.save!
+    if  @song.save!
     redirect_to @artist, notice: "Song added"
 
-end
+    else
+    render 'new'
+    end
+  end
+
 
   def destroy
    @artist = Artist.find(params[:artist_id])
@@ -32,7 +36,7 @@ end
   end
   def song_params
     params
-      .require(:song, :song_id)
+      .require(:song)
       .permit(
         :name, :duration, :release, :album, :label, :artist_id, :song_id
       )

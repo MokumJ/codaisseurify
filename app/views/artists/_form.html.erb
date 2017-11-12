@@ -1,4 +1,4 @@
-<%= form_for @artist do |f| %>
+<%= form_for @artist, html: { multipart: true } do |f| %>
 
 
   <div class="form-group">
@@ -19,17 +19,18 @@
 
   </div>
 
-<%= form_for @artist, html: { multipart: true } do |f| %>
 <label>Picture</label>
 
-<div class="form-group">
-  <span class="btn btn-default">
-    Upload a picture of the artist
-    <%= file_field_tag "image", type: :file%>
+
+    <div class="field">
+     Add an image....
+     <%= f.file_field :image %>
+   </div>
   </span>
 </div>
 
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
+
 <% end %>
