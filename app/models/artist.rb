@@ -7,7 +7,7 @@ class Artist < ApplicationRecord
   validates :name, presence: true
   validates :nationality, presence: true
   validates :birthyear, presence: true
-  validates :image, presence: true
+  
 
 
 end

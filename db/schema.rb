@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171111174746) do
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.float "duration"
-    t.integer "release"
+    t.date "release"
     t.string "album"
     t.string "label"
     t.datetime "created_at", null: false
