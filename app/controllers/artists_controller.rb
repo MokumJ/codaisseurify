@@ -11,12 +11,12 @@ class ArtistsController < ApplicationController
   end
 
   def new
-   @artist = @artists.build
+   @artist = Artist.new
   end
 
   def create
-     @artist = @artists.build
-    if @artist.save
+     @artist = Artist.new(artist_params)
+    if @artist.save!
     redirect_to @artist
 
     else
@@ -25,31 +25,21 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
-    @artist.destroy(artist_params)
+    Artist.find(params[:id]).destroy
     redirect_to artists_path
   end
 
   def edit;
   end
 
-  def update
 
-    if @artist.update(artist_params)
-      redirect_to @artist
-
-    else
-      render 'edit'
-    end
-  end
   private
 
   def set_artist
     @artist = Artist.find(params[:id])
   end
   def artist_params
-    params
-      .require(:artist)
-      .permit(
+      params.require(:artist).permit(
         :name, :picture, :nationality, :birthyear, :image
       )
     end
