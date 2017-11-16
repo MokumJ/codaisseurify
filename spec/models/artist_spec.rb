@@ -23,15 +23,16 @@ RSpec.describe Artist, type: :model do
 
   #<-----------------------association test----------------------->
   describe "association with song" do
-  let(:artist) { create :artist }
-  let!(:song)  { create :song, artist: artist }
-
+    let(:artist) { create :artist }
+    let(:song) { create :song, artist: artist }
     it "has many songs" do
-    song1 = artist.songs.new(name: "pasha")
-    room2 = artist.songs.new(name: "pulupgame")
+      song1 = artist.songs.new(name: "kinshahsa")
+      song2 = artist.songs.new(name: "challa")
 
-    expect(artist.songs).to include(song1)
-    expect(artist.songs).to include(song2)
+      expect(artist.songs).to include(song1)
+      expect(artist.songs).to include(song2)
     end
-  end
+    end
+
+
 end
