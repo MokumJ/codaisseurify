@@ -13,28 +13,25 @@
   <tr class= "table-head">
     <th>Title</th>
     <th>Duration</th>
-    <th> <%= sortable "release", "Released" %></th>
+    <th> Released</th>
     <th>Album</th>
     <th>Label</th>
   </tr>
-
-<%@songs.each do|song|%>
-  <tr class = "table-body">
-<td><%=      song.name     %> </td>
-<td><%=      song.duration.to_f %> </td>
-<td><%=      song.release  %> </td>
-<td><%=      song.album    %> </td>
-<td><%=      song.label    %> <td>
-<td><%=  link_to "Delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %><td>
-  </tr>
-<%end%>
+<tr>
+ <tbody>
+              <%@songs.each do|song|%>
+             <%= render 'song', song: @song %>
+        <% end %>
+</tbody
+</tr>
+</table>
   <%= render "songs/form", song: @song, artist_id: @artist %>
 
 
-</table>
+
   <footer>
     <div class="footer">
-      <a href="#" id="clean-up">Clean up</a>
+      <a href="#" id="#delete">Delete All Songs</a>
     </div>
 </ol>
   <div class="col-md-3 right">
