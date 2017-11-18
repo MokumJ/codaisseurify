@@ -1,8 +1,10 @@
 class SongsController < ApplicationController
-
+before_action :set_song, only: [:show, :edit, :update, :destroy]
   def index
-
-    @songs = Songs.order(params[:sort] + ' ' + params[:direction])
+    @artist = Artist.find(params[:artist_id])
+    @songs = @artist.songs
+    @song = @artist.song.new
+    render status: 200, json: song
   end
   def new
     @artist = Artist.find(params[:artist_id])
@@ -15,12 +17,13 @@ class SongsController < ApplicationController
     @song = @artist.songs.build(song_params)
 
       if  @song.save!
-        render status: 200, json: song
-
+        respond_to do |format|
+        format.html { redirect_to @artist, notice: 'Song was added successfully.' }
+        format.json { render :show, status: :created, location: @song }
+      end
     else
-            render status: 422, json: {
-            errors: song.errors
-          }.to_json
+      format.html { redirect_to @artist }
+      format.json { render json: @songs.errors, status: :unprocessable_entity }
       end
    end
 
