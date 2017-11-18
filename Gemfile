@@ -23,6 +23,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'jbuilder', '~> 2.5'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 
 group :development, :test do
 

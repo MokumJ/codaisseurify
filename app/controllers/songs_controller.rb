@@ -7,6 +7,7 @@ class SongsController < ApplicationController
   def new
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.build
+    render status: 200, json: song
   end
 
   def create
@@ -14,10 +15,12 @@ class SongsController < ApplicationController
     @song = @artist.songs.build(song_params)
 
       if  @song.save!
-    redirect_to @artist, notice: "Song added"
+        render status: 200, json: song
 
-      else
-    render 'new'
+    else
+            render status: 422, json: {
+            errors: song.errors
+          }.to_json
       end
    end
 
@@ -26,7 +29,9 @@ class SongsController < ApplicationController
    @artist = Artist.find(params[:artist_id])
    @song = @artist.songs.find(params[:id])
    @song.destroy
-   redirect_to @artist, :notice => "Song Deleted"
+   render status: 200, json: {
+       message: "Song successfully deleted"
+     }.to_json
   end
 
 
