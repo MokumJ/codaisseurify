@@ -31,8 +31,13 @@ RSpec.describe Artist, type: :model do
 
       expect(artist.songs).to include(song1)
       expect(artist.songs).to include(song2)
-    end
-    end
 
 
+    end
+end
+    it  "Artist should have many songs" do
+
+      song = Artist.reflect_on_association(:songs)
+      expect(song.macro).to eq(:has_many)
+    end
 end
