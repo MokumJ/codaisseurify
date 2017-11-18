@@ -5,11 +5,4 @@ Rails.application.routes.draw do
 
   resources :songs, only: [:create, :new, :destroy]
   end
-
-  namespace :api do
-  resources :artists do
-
-  resources :songs, only: [:create, :new, :destroy]
-    end
-  end
 end

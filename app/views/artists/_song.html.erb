@@ -1,0 +1,9 @@
+
+
+<tr class="songs" id="row<%= song.id %>">
+<td><label for="song-<%= song.id %>"> <%=     song.name     %> </td>
+<td><label for="song-<%= song.id %>"><%=      song.duration.to_f %> </td>
+<td><label for="song-<%= song.id %>"><%=      song.release  %> </td>
+<td><label for="Song-<%= song.id %>"><%=      song.album    %> </td>
+<td><%=  link_to "Delete", [@artist, song], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %><td>
+</tr>

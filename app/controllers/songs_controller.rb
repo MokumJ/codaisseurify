@@ -18,9 +18,10 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
 
       if  @song.save!
         respond_to do |format|
-        format.html { redirect_to @artist, notice: 'Song was added successfully.' }
-        format.json { render :show, status: :created, location: @song }
-      end
+        format.html { redirect_to artist_path(@artist) }
+        format.json { render :show, status: :created, location: @artist }
+      
+    end
     else
       format.html { redirect_to @artist }
       format.json { render json: @songs.errors, status: :unprocessable_entity }
@@ -32,9 +33,11 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
    @artist = Artist.find(params[:artist_id])
    @song = @artist.songs.find(params[:id])
    @song.destroy
-   render status: 200, json: {
-       message: "Song successfully deleted"
-     }.to_json
+     respond_to do |format|
+     format.html { redirect_to artist_path(@artist) }
+     format.json { render :show, status: :deleted, location: @artist }
+
+   end
   end
 
 

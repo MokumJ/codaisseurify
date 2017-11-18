@@ -1,0 +1,1 @@
+("#getSongs").last('tr').after('<%= escape_javascript(render partial: "artists/song", :locals => { :song => @song })) %>');
