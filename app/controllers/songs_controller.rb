@@ -8,24 +8,24 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
   end
   def new
     @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.build
-    render status: 200, json: song
+    @song = @artist.songs.new
+    render status: 200, json: @song
   end
 
   def create
-    binding.pry
+
     @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.build(song_params)
-
+    @song = @artist.songs.new(song_params)
+          respond_to do |format|
       if  @song.save!
-        respond_to do |format|
-        format.html { redirect_to artist_path(@artist) }
-        format.json { render :show, status: :created, location: @artist }
 
-    end
+        format.html { redirect_to artist_path(@artist) }
+        format.json { render :show, status: :created, location: @song }
+
     else
       format.html { redirect_to @artist }
       format.json { render json: @songs.errors, status: :unprocessable_entity }
+        end
       end
    end
 
@@ -49,12 +49,11 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
   def set_song
     @song = Song.find(params[:id])
   end
+
   def song_params
-    params
-      .require(:song)
+    params.require(:song)
       .permit(
         :name, :duration, :release, :album, :label, :artist_id, :song_id
       )
-
   end
 end

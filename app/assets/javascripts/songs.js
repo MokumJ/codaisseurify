@@ -12,10 +12,34 @@ $(function(){
   var data = $(this).serializeArray();
   $.ajax({
       method: method,
-      url: action,
-      data: data
-      dataType: 'script'
+      url: action + ".json",
+      data: JSON.stringify( data),
+      contentType: "application/json",
+      dataType: "json"
     });
-    
+
+    $(this).append(data)
   });
 });
+  var deleteSong=function(){}
+  var action = $(this).attr('action');
+  var name = $(this).find('#song_name').val();
+  var duration =$(this).find('#song_duration').val();
+  var release =$(this).find('#song_release').val();
+  var album = $(this).find('#song_album').val();
+
+  var data = $(this).serializeArray();
+$.ajax({
+    method: "DELETE",
+    url: action + ".json",
+    data: JSON.stringify( data),
+    contentType: "application/json",
+    dataType: "json"
+
+    $(this).remove(data);
+}
+});
+}
+
+  $(document).on("click","#delete-button",deleteSong);
+  $(document).bind('submit',"form"), submitTodo);

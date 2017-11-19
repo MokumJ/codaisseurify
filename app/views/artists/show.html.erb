@@ -18,14 +18,15 @@
     <th>Label</th>
   </tr>
 <tr>
- <tbody>
-              <%@songs.each do|song|%>
-             <%= render 'song', song: @song %>
-        <% end %>
-</tbody
-</tr>
-</table>
-  <%= render "songs/form", song: @song, artist_id: @artist %>
+  </table>
+ <ul>
+
+        <%= render :partial => "song", :collection => @artist.songs %>
+
+</ul>
+
+
+  <%= render :partial => "songs/form", song: @song, artist_id: @artist %>
 
 
 
