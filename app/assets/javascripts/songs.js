@@ -1,6 +1,7 @@
 $(function(){
   $("form").submit(function(event){
     event.preventDefault();
+    debugger;
   var action = $(this).attr('action');
   var method = $(this).attr('method');
 
@@ -18,11 +19,15 @@ $(function(){
       dataType: "json"
     });
 
-    $(this).append(data)
+    $('#list').append(data)
   });
 });
-  var deleteSong=function(){}
+$(function(){
+  $('#delete').click(function(event){
+    event.preventDefault();
+ debugger;
   var action = $(this).attr('action');
+  var method = $(this).attr('method');
   var name = $(this).find('#song_name').val();
   var duration =$(this).find('#song_duration').val();
   var release =$(this).find('#song_release').val();
@@ -30,16 +35,17 @@ $(function(){
 
   var data = $(this).serializeArray();
 $.ajax({
-    method: "DELETE",
+    method: method,
     url: action + ".json",
     data: JSON.stringify( data),
     contentType: "application/json",
-    dataType: "json"
+    dataType: "json",
+      });
 
-    $(this).remove(data);
-}
+  $('#list').remove(data);
+
+  });
 });
-}
 
-  $(document).on("click","#delete-button",deleteSong);
-  $(document).bind('submit',"form"), submitTodo);
+ $(document).bind('click',"#delete",deleteSong);
+   $(document).bind('submit',"form"), submitSong);

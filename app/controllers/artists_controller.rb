@@ -10,10 +10,10 @@ class ArtistsController < ApplicationController
    @songs = @artist.songs
    @song = @artist.songs.build
    respond_to do |format|
-    format.html
-    format.json
+  format.html # show.html.erb
+  format.json { render json: @artist }
   end
-  end
+end
 
   def new
    @artist = Artist.new
