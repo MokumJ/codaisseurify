@@ -8,19 +8,19 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
   end
   def new
     @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.new
+    @song = @artist.songs.build
     render status: 200, json: @song
   end
 
   def create
 
     @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.new(song_params)
+    @song = @artist.songs.build(song_params)
           respond_to do |format|
       if  @song.save!
 
         format.html { redirect_to artist_path(@artist) }
-        format.json { render :show, status: :created, location: @song }
+        format.json { render :show, status: :created, location: @songs }
 
     else
       format.html { redirect_to @artist }
@@ -36,7 +36,7 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
    @song.destroy
      respond_to do |format|
      format.html { redirect_to artist_path(@artist) }
-     format.json { render :show, status: :deleted, location: @artist }
+     format.json { render :show, status: :deleted, location: @songs }
 
    end
   end
