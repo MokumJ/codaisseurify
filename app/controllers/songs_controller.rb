@@ -20,7 +20,7 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
       if  @song.save!
 
         format.html { redirect_to artist_path(@artist) }
-        format.json { render :show, status: :created, location: @artist }
+        format.json { render :show, status: :created, location: @song }
 
     else
       format.html { redirect_to @artist }
