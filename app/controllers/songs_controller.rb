@@ -13,6 +13,7 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+    binding.pry
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.build(song_params)
 
@@ -20,7 +21,7 @@ before_action :set_song, only: [:show, :edit, :update, :destroy]
         respond_to do |format|
         format.html { redirect_to artist_path(@artist) }
         format.json { render :show, status: :created, location: @artist }
-      
+
     end
     else
       format.html { redirect_to @artist }
