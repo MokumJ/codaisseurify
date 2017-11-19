@@ -18,7 +18,7 @@ $(function(){
       dataType: "json"
     });
 
-    $(this).append(data)
+    $('li').append(data)
   });
 });
   var deleteSong=function(){}
@@ -36,7 +36,7 @@ $.ajax({
     contentType: "application/json",
     dataType: "json"
 
-    $(this).remove(data);
+  
 }
 });
 }
