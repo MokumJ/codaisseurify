@@ -39,7 +39,7 @@ $.ajax({
     contentType: "application/json",
     dataType: "json",
     success: function(){
-           $('#list' + songId).fadeOut;
+           $('#list' + songId).remove();
        }
        });
       });
